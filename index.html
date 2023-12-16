@@ -136,15 +136,17 @@
 		</div>
 		<script type="text/javascript">
 			// 获取链接并显示在网页上
-			function getLink(){
-				document.getElementById('link').style.display = "block";
-				var value = document.getElementById('search').value;
-				var base_url = location.href;
-				url = base_url + "?" + value;
-				document.getElementById('url').value = url;
-				document.getElementById('url').select();
-				document.getElementById('instrcutions').innerText = "复制下面的地址,然后发给伸手党吧！";
-			}
+		function getLink(){
+    document.getElementById('link').style.display = "block";
+    var value = document.getElementById('search').value;
+    var base_url = location.href;
+    var encodedValue = encodeURIComponent(value); // Encode the search query
+    var url = base_url + "?" + encodedValue;
+    document.getElementById('url').value = url;
+    document.getElementById('url').select();
+    document.getElementById('instrcutions').innerText = "复制下面的地址，然后发给伸手党吧！";
+}
+
 			// 将链接自动拷贝到剪切板中
 			function copyLink(){
 				document.execCommand('copy');
@@ -176,7 +178,7 @@
 				});
 				// 实现点击"?"文本就弹出提示声明
 				document.getElementsByClassName('about')[0].addEventListener('click',function(){
-					alert('*本站与必应公司没有任何联系，baidu以及本站出现的必应公司Logo是必应公司的商标。');
+					alert('*本站与必应公司没有任何联系，bing以及本站出现的必应公司Logo是必应公司的商标。');
 				});
 				if(variable){	// 判断有没有get传递的参数,有就进入动画效果,没有就保持不变
 					var arrow = document.getElementById('arrow');
